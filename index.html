@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datboodiebreadham Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💾</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+      #door-tooltip {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 14px;
+        z-index: 10;
+        display: none;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+    </style>
+</head>
+<body>
+    <div id="instructions">
+        <h1>Datboodiebreadham Simulator</h1>
+        <p>Click to start</p>
+        <p style="font-size: 0.8em; margin-top: 2em;">Look at the computer screen and click to interact.<br/>Press [SPACE] to zoom in/out from the screen.<br/>Press [E] to stand up from the chair.<br/>Use [W,A,S,D] to walk.<br/>Click off-screen to release the cursor.</p>
+    </div>
+    <div id="door-tooltip">Click to open door</div>
+    <div id="eyelids" aria-hidden="true">
+      <div id="eyelidTop"></div>
+      <div id="eyelidBottom"></div>
+    </div>
+    <div id="notepadOverlay" aria-hidden="true">
+        <div class="pad">
+            <div class="pad-header">
+                <span>Notepad</span>
+                <button id="notepadCloseBtn" aria-label="Close Notepad">✕</button>
+            </div>
+            <textarea id="notepadTextarea" placeholder="Type your notes here..."></textarea>
+            <div class="hint">Press ESC to put it back down</div>
+        </div>
+    </div>
+    <div id="flashlight-hud" style="display: none;">
+        <div class="battery-icon"></div>
+        <div class="battery-level"></div>
+    </div>
+    <!-- NEW: Mobile controls -->
+    <div id="mobile-controls" aria-hidden="true">
+      <div id="joystick-area"></div>
+      <div id="mobile-buttons">
+        <button id="btnZoom" type="button">Zoom</button>
+        <button id="btnUse" type="button">Stand/E</button>
+      </div>
+    </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
